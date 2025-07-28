@@ -20,9 +20,9 @@ const ParkingSelect = ({ reservation }) => {
   const threeRow = allSeatsData.filter((seat)=>{return seat.num >= 21 && seat.num <= 25});
 
   //예약 여부(for문으로 사용할 예정)
-  const isReserved = (seat) => reserveID.includes(seat.id);  //reserveID는 이미 예약된 좌석을 의미, seat_id가 reserveID 안에 있는지 확인(있으면 true)
-  const isMyReserved = (seat) => myReserved.includes(seat.id); //myReserved는 내가 예약한 좌석을 의미, seat_id가 myReserved는 안에 있는지 확인(있으면 true)
-
+  const isReserved = allSeatsData.filter((seat) => reserveID.includes(seat.id));  //reserveID는 이미 예약된 좌석을 의미, seat_id가 reserveID 안에 있는지 확인(있으면 true)
+  const isMyReserved = allSeatsData.filter((seat) => myReserved.includes(seat.id)) //myReserved는 내가 예약한 좌석을 의미, seat_id가 myReserved는 안에 있는지 확인(있으면 true)
+console.log(isReserved,isMyReserved);
 
   //예약이 가능한 seat만 선택이 되게 하는 함수(예약중, 예약불가능은 클릭 안됨)
   const handleSeatClick =(seat)=>{

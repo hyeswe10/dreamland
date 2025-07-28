@@ -1,7 +1,6 @@
 import { supabase } from "./supabaseClient";
 
 //혹시라도 이해안되시면 설명해드릴테니 편히 말씀주세요!
-//test
 
 
 /** 회원가입 페이지 - 정우 */ 
@@ -28,13 +27,13 @@ export const fetchAllUserId = async ()=>{
 }
 
 //필요한 정보 : 이름, 아이디, 비밀번호, 차량번호, 휴대폰번호 전부 input value
-export const fetchSignUp = async (
+export const fetchSignUp = async ({
     username,
     userID,
     password,
     car,
     phone
-)=>{
+})=>{
     //데이터를 가져오는 것이 아닌 집어넣는 것이라 data가 필요 없음
     const { error } = await supabase
         .from('users')
@@ -62,14 +61,25 @@ export const findUserId = async (username,phone)=>{
 
 /** 4. 비밀번호 찾기-변경 **/
 //필요한 정보 : 이름,휴대폰,아이디로 해당되는 users정보를 찾아서 새로 입력한 비밀번호로 변경하기
-export const findPassword = async (username,phone,userID,newpass)=>{
+
+// 해당 유저정보 찾아오기
+export const findInfo = async (username,phone,userID)=>{
     const { data, error } = await supabase
         .from('users')
-        .update({password:newpass})
+        .select('id')
         .eq('name',username)
         .eq('phone',phone)
         .eq('user_id',userID)
         .single();
+    return {data,error};
+}
+
+// 해당 정보 비밀번호 변경
+export const findPassword = async (id,newPass)=>{
+    const { data, error } = await supabase
+        .from('users')
+        .update({password:newPass})
+        .eq('id',id)
     return {data,error};
 }
 
@@ -100,7 +110,7 @@ export const fetchMyReserve = async (userID)=>{
 }
 
 /** 2. 예약취소 **/
-export const cancelReserve = async (reserveID,parkareaID)=>{
+export const cancelReserve = async (reserveID,parkareaZone,parkareaNum)=>{
     //reservations 상태변경
     const { error } = await supabase
         .from('reservations')
@@ -113,7 +123,8 @@ export const cancelReserve = async (reserveID,parkareaID)=>{
     const { error:parkareaError } = await supabase
         .from('parkarea')
         .update({is_reserved:false})
-        .eq('id',parkareaID);
+        .eq('num',parkareaNum)
+        .eq('zone',parkareaZone);
     if( parkareaError ){
         return {data:false,error:parkareaError}
     }
@@ -122,10 +133,21 @@ export const cancelReserve = async (reserveID,parkareaID)=>{
 
 /** 3. 비밀번호 변경 **/
 //비밀번호 확인에서 일치하는거
-export const changePassword = async (oldpass,newpass)=>{
+export const changePassword = async ({
+    oldpass,
+    newpass,
+    newName,
+    newPhone,
+    newCar
+})=>{
     const { error } = await supabase
         .from('users')
-        .update({password:newpass})
+        .update({
+            password:newpass,
+            name:newName,
+            phone:newPhone,
+            car:newCar
+            })
         .eq('password',oldpass);
     return {error};
 }
@@ -139,7 +161,18 @@ export const yearlyPass = async (ID)=>{
     return {error};
 }
 
-//**  예약하기(효진씨 파트) **/
+
+
+
+
+
+
+
+
+/** 예약하기(효진씨 파트) **/
+
+
+
 /** 1. 구역선택 **/
 
 // 날짜에 따른 잔여석 변동 api
@@ -195,6 +228,9 @@ export const getAllseatsByDate = async (selectDate)=>{
 }
 
 
+
+
+
 /** 2. 구역표기 **/
 
 //필요한 정보 : 해당 구역 모든 좌석에 대한 id와 num, 구역내에 예약된 자리, 내예약자리
@@ -242,6 +278,8 @@ export const loadZoneSeats = async (selectZone,selectDate,userID)=>{
         }
     };
 }
+
+
 
 
 /** 예약하기(결제 파트) **/
