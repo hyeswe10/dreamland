@@ -1,0 +1,284 @@
+#main-page {
+  max-width: $small-size;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 70px 0;
+  // padding-top: 35px;
+
+  // 지도 부분
+  .zone-map {
+    width: 100%;
+    padding: 16px;
+    background-color: rgba($color: #dcd5e8, $alpha: 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+    .top-info {
+      @include flex-layout(row, space-between);
+      .left {
+        @include flex-layout();
+        gap: 7px;
+        .date-info {
+          p {
+            @include font-caption;
+            color: var(--color-graytxt);
+          }
+          h3 {
+            @include font-h3;
+          }
+        }
+      }
+      .right {
+        .redo-wrap {
+          @include flex-layout(row, right);
+          .redo-btn {
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 50%;
+            background-color: transparent;
+            border: none;
+            outline: none;
+            background-color: var(--color-white);
+            border: 1px solid var(--color-sub);
+            cursor: pointer;
+            transition: transform 0.5s ease;
+            svg {
+              font-size: 1.3rem;
+              path {
+                color: var(--color-graytxt);
+              }
+            }
+            &.spinning svg {
+              animation: spin 0.5s linear;
+            }
+          }
+        }
+      }
+    }
+    .reservation-zone {
+      background-color: rgba($color: #dcd5e8, $alpha: 0.6);
+      border-radius: 16px;
+      padding: 16px;
+      .zone-title {
+        @include flex-layout(row, left);
+        gap: 8px;
+        color: #6e3d84;
+        svg {
+          font-size: 2rem;
+        }
+        p {
+          @include font-body-bold;
+        }
+        span {
+          color: rgba($color: #6e3d84, $alpha: 0.3);
+          @include font-caption;
+        }
+      }
+      .zone-wrap {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        margin-top: 10px;
+        .zone {
+          padding: 16px;
+          background-color: var(--color-white);
+          border-radius: 16px;
+          .top {
+            @include flex-layout(row, space-between);
+            h2 {
+              @include flex-layout();
+              @include font-h2;
+              gap: 3px;
+              span {
+                @include font-body-bold;
+              }
+            }
+            p {
+              @include font-caption;
+              span {
+                width: 12px;
+                height: 12px;
+                background-color: #ff8080;
+                border-radius: 50%;
+                display: inline-block;
+                margin-right: 5px;
+              }
+            }
+          }
+          .bottom {
+            @include flex-layout(row, right, center);
+            p {
+              @include font-caption;
+              color: var(--color-maintxt);
+              margin-right: 5px;
+            }
+            .num {
+              @include flex-layout();
+              p {
+                @include font-h3;
+                color: var(--color-primary);
+                &:nth-child(2) {
+                  @include font-caption;
+                  color: var(--color-graytxt);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .normal-zone {
+      @include flex-layout(row, space-between, center);
+      background-color: rgba($color: #dcd5e8, $alpha: 0.2);
+      padding: 16px;
+      border-radius: 16px;
+      .zone-left {
+        @include flex-layout(column, left, left);
+        gap: 7px;
+        .zone-title {
+          color: var(--color-maintxt);
+          gap: 3px;
+          @include font-body-bold;
+          @include flex-layout(row, left, center);
+        }
+        span {
+          @include font-caption;
+          color: var(--color-graytxt);
+        }
+      }
+      .zone-right {
+        @include flex-layout(column, right, right);
+        gap: 7px;
+        p {
+          @include font-body-bold;
+          text-align: right;
+        }
+        .bottom {
+          @include flex-layout(row, right, center);
+          p {
+            @include font-caption;
+            color: var(--color-maintxt);
+            margin-right: 5px;
+          }
+          .num {
+            @include flex-layout();
+            p {
+              @include font-h3;
+              color: var(--color-maintxt);
+              &:nth-child(2) {
+                @include font-caption;
+                color: var(--color-graytxt);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // 아래 버튼
+  .reservation-section {
+    padding: 0 16px;
+    @include flex-layout(column);
+    gap: 15px;
+    margin: 1rem auto;
+    .icon {
+      font-size: 32px;
+      path {
+        color: var(--color-sub);
+      }
+    }
+    .reserve-btn {
+      @include btn1();
+      @include font-h2;
+      @include flex-layout;
+      height: 85px;
+      margin: 0;
+      gap: 10px;
+      width: 100%;
+      padding: 3rem 0;
+      cursor: pointer;
+      box-shadow: 0px 0px 15px rgba(220, 213, 232, 0.5);
+
+      .car-icon {
+        font-size: 32px;
+        path {
+          color: var(--color-white);
+        }
+      }
+    }
+
+    .info-buttons {
+      display: flex;
+      gap: 16px;
+      width: 100%;
+
+      .info-btn {
+        @include border;
+        @include font-body-bold;
+        @include flex-layout;
+        border-radius: 16px;
+        height: 85px;
+        padding: 20px 0;
+        background-color: var(--color-white);
+        flex: 1;
+        gap: 6px;
+        color: var(--color-maintxt);
+        cursor: pointer;
+        box-shadow: 0px 0px 15px rgba(220, 213, 232, 0.5);
+
+        &:hover {
+          filter: brightness(95%);
+        }
+      }
+    }
+
+    .more-info {
+      @include border;
+      @include font-body-bold;
+      @include flex-layout(row, space-between);
+      border-radius: 16px;
+      height: 70px;
+      background-color: var(--color-white);
+      width: 100%;
+      cursor: pointer;
+      box-shadow: 0px 0px 15px rgba(220, 213, 232, 0.5);
+      &:hover {
+        filter: brightness(95%);
+      }
+    }
+  }
+}
+.status-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.status-green {
+  background-color: #97e78f;
+}
+
+.status-yellow {
+  background-color: #ffd078;
+}
+
+.status-red {
+  background-color: #ff8080;
+}
+
+.status-gray {
+  background-color: var(--color-graytxt);
+}

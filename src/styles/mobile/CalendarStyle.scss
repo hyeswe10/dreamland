@@ -1,0 +1,148 @@
+.react-calendar {
+   margin: 0 auto;
+    border-radius: 16px;
+    border: 1px solid var(--color-sub);
+    overflow: hidden;
+    box-shadow: 0px 0px 15px rgba(220, 213, 232, 0.5);
+    // width: 100%;
+    
+    .react-calendar__tile.react-calendar__month-view__days__day[disabled]{
+      background-color: var(--color-white);
+      color: var(--color-graytxt);
+    }
+    .react-calendar__month-view__days__day--weekend:not([disabled]) {
+  abbr {
+    color: var(--color-primary) // 주말 글씨 색 (disabled가 아니면)
+  }
+}
+  .react-calendar__month-view__days__day:not(.react-calendar__month-view__days__day--weekend):not([disabled]) abbr {
+  color: var(--color-primary) !important;
+  }
+
+  /* 평일 글자색 */
+  .react-calendar__month-view__days__day:not(
+      .react-calendar__month-view__days__day--weekend
+    ):not([disabled])
+    abbr {
+    color: var(--color-primary) !important;
+    font-family: 'Pretendard Variable', sans-serif;
+  }
+
+  /* 기본 타일 스타일 */
+  .react-calendar__tile {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    transition: background-color 0.3s ease, filter 0.3s ease;
+    &:hover {
+      background-color: var(--color-sub);
+      filter: brightness(110%);
+    }
+  }
+
+  /* 선택된 날짜 */
+  .react-calendar__tile--active,
+  .react-calendar__tile--rangeStart,
+  .react-calendar__tile--rangeEnd,
+  .react-calendar__tile--rangeBothEnds {
+    background-color: var(--color-primary) !important;
+    color: var(--color-white);
+    border-radius: 8px;
+    &:hover {
+      filter: brightness(110%);
+      color: var(--color-white);
+      font-family: 'Pretendard Variable', sans-serif;
+    }
+    abbr {
+      color: var(--color-white) !important;
+      font-family: 'Pretendard Variable', sans-serif;
+    }
+  }
+
+  /* 선택된 날짜 호버/포커스 */
+  .react-calendar__tile--active:enabled:hover,
+  .react-calendar__tile--active:enabled:focus {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    abbr {
+      color: var(--color-white) !important;
+      font-family: 'Pretendard Variable', sans-serif;
+    }
+  }
+
+  /* 오늘 날짜 (선택 안 됐을 때) */
+  .react-calendar__tile--now:not(.react-calendar__tile--active) {
+    background-color: var(--color-secondary);
+    color: var(--color-primary) !important;
+    border-radius: 8px;
+    &:hover {
+      background-color: var(--color-sub);
+      filter: brightness(110%);
+    }
+  }
+
+  /* 오늘 + 선택된 날짜 */
+  .react-calendar__tile--now.react-calendar__tile--active {
+    background-color: var(--color-primary) !important;
+    border-radius: 8px;
+    abbr {
+      color: var(--color-white) !important;
+    }
+  }
+
+  /* 오늘 + 선택된 날짜 호버 */
+  .react-calendar__tile--now.react-calendar__tile--active:enabled:hover,
+  .react-calendar__tile--now.react-calendar__tile--active:enabled:focus {
+    background-color: var(--color-primary) !important;
+    filter: brightness(110%);
+    abbr {
+      color: var(--color-white) !important;
+    }
+  }
+  .react-calendar__tile--active abbr,
+  .react-calendar__tile--active:enabled:hover abbr,
+  .react-calendar__tile--active:enabled:focus abbr {
+    color: var(--color-white) !important;
+  }
+}
+.ScheduleSelect .react-calendar__tile--active abbr,
+.ScheduleSelect .react-calendar__tile--active:enabled:hover abbr,
+.ScheduleSelect .react-calendar__tile--active:enabled:focus abbr {
+  color: var(--color-white) !important;
+}
+.ScheduleSelect {
+  .react-calendar__tile--active abbr {
+    color: var(--color-white) !important;
+  }
+  .react-calendar__tile--active abbr,
+  .react-calendar__tile--active:not(:focus):not(:hover) abbr {
+    color: var(--color-white) !important;
+  }
+
+  // 요일 아래 점
+  abbr[title] {
+    text-decoration: none !important;
+    font-size: 1.5rem;
+    font-family: 'Pretendard Variable', sans-serif;
+  }
+  .react-calendar__navigation__label__labelText {
+    font-size: 2rem;
+    font-weight: 600;
+    font-family: 'Pretendard Variable', sans-serif;
+  }
+  .react-calendar__navigation__label{
+      background-color: var(--color-white) !important;
+      color: var(--color-maintxt);
+    }
+    .today-text {
+    font-size: 1rem;
+    text-align: center;
+    font-family: 'Pretendard Variable', sans-serif;
+  }
+  .react-calendar__navigation{
+    border-bottom: 1px solid var(--color-sub);
+  }
+  .react-calendar__navigation__arrow:disabled {
+  opacity: 0;
+  pointer-events: none; // 마우스 클릭도 안 되게
+}
+}

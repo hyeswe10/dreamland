@@ -48,6 +48,7 @@ const MobilePage = () => {
 
       </Routes>
       <BottomNavBarMobile/>
+      <BottomNavBarMobile/>
     </div>
   );
 };

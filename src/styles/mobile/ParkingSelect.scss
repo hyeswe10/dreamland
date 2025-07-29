@@ -3,7 +3,11 @@
     height: 100vh;
     margin: 0 auto;
     padding: 70px 16px;
-    .is_reserved{
-        color: red;
+    .reserve-notice{
+        span{
+            width: 20px;
+            height: 20px;
+        }
+        @include flex-layout();
     }
 }

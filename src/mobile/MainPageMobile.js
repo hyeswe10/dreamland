@@ -1,19 +1,42 @@
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import BottomNavBarMobile from "./BottomNavBarMobile";
-import HeaderMobile from "./HeaderMobile";
-
 import MainHeaderMobile from "./MainHeaderMobile";
-import { FaCar } from "react-icons/fa";
-import { HiTicket } from "react-icons/hi";
-import { HiInformationCircle } from "react-icons/hi";
-import { FaMapMarkerAlt } from "react-icons/fa";
+
+import { FaCar, FaMapMarkerAlt, FaRedoAlt } from "react-icons/fa";
+import { HiTicket, HiInformationCircle } from "react-icons/hi";
 import { FaCaretRight } from "react-icons/fa";
-// import { ReactComponent as Parking } from "../icons/Parking.svg";
-import { FaRedoAlt } from "react-icons/fa";
+// import { ReactComponent as Parking } from "..icons/Parking.svg";
+
+import { getAllseatsByDate } from "../utils/ParkingAPI";
+import Footer from "./Footer";
+
+// 잔여석에 따른 혼잡도 상태 반환
+const getParkingStatus = (remaining) => {
+  if (remaining >= 10) {
+    return { dotClass: "status-green", textClass: "text-green", label: "여유" };
+  } else if (remaining >= 4) {
+    return {
+      dotClass: "status-yellow",
+      textClass: "text-yellow",
+      label: "보통",
+    };
+  } else if (remaining >= 0) {
+    return { dotClass: "status-red", textClass: "text-red", label: "혼잡" };
+  }
+  return {
+    dotClass: "status-gray",
+    textClass: "text-gray",
+    label: "정보 없음",
+  };
+};
 
 const MainPageMobile = () => {
   const navigate = useNavigate();
+  const [zoneData, setZoneData] = useState({}); // A,B,C,D 데이터 저장
+  const [isSpinning, setIsSpinning] = useState(false); // 아이콘 회전 상태
+
   const now = new Date();
   const formatted = now.toLocaleString("ko-KR", {
     month: "long",
@@ -24,110 +47,97 @@ const MainPageMobile = () => {
     hour12: true,
   });
 
+  const fetchData = async () => {
+    const today = new Date().toISOString().split("T")[0];
+    const result = await getAllseatsByDate(today);
+    if (result.success) {
+      setZoneData(result.data);
+    } else {
+      console.error(result.error);
+    }
+  };
+
+  const handleRedo = () => {
+    // 새로고침 데이터
+    fetchData();
+
+    // 아이콘 회전 애니메이션
+    setIsSpinning(true);
+    setTimeout(() => setIsSpinning(false), 600); // 0.6초 후 원래 상태로
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <div id="main-page">
       <MainHeaderMobile />
+
       <div className="zone-map">
-  
+        {/* 상단 날짜 및 새로고침 */}
         <div className="top-info">
-          <div className="redo-wrap">
-          <button className="redo-btn">
-            <FaRedoAlt />
-          </button>
-        </div>
-        <div className="wrap">
-    <div className="left">
-            {/* <Parking /> */}
+          <div className="left">
+            <img src={`${process.env.PUBLIC_URL}/images/Parking.svg`} alt="icon" />
             <div className="date-info">
               <p>{formatted}</p>
               <h3>드림랜드 실시간 주차 현황</h3>
             </div>
           </div>
-          <div className="right"></div>
+          <div className="right">
+            <div className="redo-wrap">
+              <button
+                className={`redo-btn ${isSpinning ? "spinning" : ""}`}
+                onClick={handleRedo}
+              >
+                <FaRedoAlt />
+              </button>
+            </div>
+          </div>
         </div>
 
         </div>
 
+        {/* 사전 예약 ZONE */}
         <div className="reservation-zone">
           <div className="zone-title">
             <FaMapMarkerAlt />
             <p> 사전 예약 ZONE</p>
             <span>정문 GATE 바로 앞! 빠른 입장</span>
           </div>
+
           <div className="zone-wrap">
-            <div className="zone">
-              <div className="top">
-                <h2>
-                  A<span>구역</span>
-                </h2>
-                <p>
-                  <span></span>혼잡
-                </p>
-              </div>
-              <div className="bottom">
-                <p>잔여석</p>
-                <div className="num">
-                  <p>3</p>
-                  <p>/25</p>
-                </div>
-              </div>
-            </div>
+            {["A", "B", "C", "D"].map((zone) => {
+              const available = zoneData[zone]?.available ?? 0;
+              const total = zoneData[zone]?.total ?? "-";
+              const status = getParkingStatus(available);
 
-            <div className="zone">
-              <div className="top">
-                <h2>
-                  B<span>구역</span>
-                </h2>
-                <p>
-                  <span></span>혼잡
-                </p>
-              </div>
-              <div className="bottom">
-                <p>잔여석</p>
-                <div className="num">
-                  <p>3</p>
-                  <p>/25</p>
+              return (
+                <div className="zone" key={zone}>
+                  <div className="top">
+                    <h2>
+                      {zone}
+                      <span>구역</span>
+                    </h2>
+                    <p className={status.textClass}>
+                      <span className={`status-dot ${status.dotClass}`}></span>
+                      {status.label}
+                    </p>
+                  </div>
+                  <div className="bottom">
+                    <p>잔여석</p>
+                    <div className="num">
+                      <p>{available}</p>
+                      <p>/{total}</p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-
-            <div className="zone">
-              <div className="top">
-                <h2>
-                  C<span>구역</span>
-                </h2>
-                <p>
-                  <span></span>혼잡
-                </p>
-              </div>
-              <div className="bottom">
-                <p>잔여석</p>
-                <div className="num">
-                  <p>3</p>
-                  <p>/25</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="zone">
-              <div className="top">
-                <h2>
-                  D<span>구역</span>
-                </h2>
-                <p>
-                  <span></span>혼잡
-                </p>
-              </div>
-              <div className="bottom">
-                <p>잔여석</p>
-                <div className="num">
-                  <p>3</p>
-                  <p>/25</p>
-                </div>
-              </div>
-            </div>
+              );
+            })}
           </div>
         </div>
+
+        {/* 일반 주차 ZONE */}
         <div className="normal-zone">
           <div className="zone-left">
             <div className="zone-title">
@@ -137,8 +147,9 @@ const MainPageMobile = () => {
             <span>현장에서만 이용할 수 있어요</span>
           </div>
           <div className="zone-right">
-            <p>
-              <span></span>혼잡
+            <p className="text-red">
+              <span className="status-dot status-yellow"></span>
+              보통
             </p>
             <div className="bottom">
               <p>잔여석</p>
@@ -151,8 +162,8 @@ const MainPageMobile = () => {
         </div>
       </div>
 
+      {/* 예약 및 안내 버튼 */}
       <div className="reservation-section">
-        {/* 상단 예약하기 버튼 */}
         <button
           className="reserve-btn"
           onClick={() => navigate("reservation/schedule")}
@@ -161,7 +172,6 @@ const MainPageMobile = () => {
           주차 예약하기
         </button>
 
-        {/* 안내 버튼들 */}
         <div className="info-buttons">
           <button className="info-btn" onClick={() => navigate("/")}>
             <HiInformationCircle className="icon" />
@@ -172,13 +182,12 @@ const MainPageMobile = () => {
           </button>
         </div>
 
-        {/* 더 많은 정보 */}
         <div className="more-info" onClick={() => navigate("/")}>
           더 많은 정보 보기
           <FaCaretRight className="icon" />
         </div>
       </div>
-      <BottomNavBarMobile />
+      <Footer/>
     </div>
   );
 };

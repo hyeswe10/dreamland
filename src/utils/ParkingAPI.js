@@ -6,6 +6,7 @@ import { supabase } from "./supabaseClient";
 /** 회원가입 페이지 - 정우 */ 
 /** 1. 로그인 **/
 //필요한 정보 : input에 입력된 userID와 password
+
 export const fetchLogin = async (userID,password)=>{
     const { data, error } = await supabase
         .from('users')
@@ -89,7 +90,7 @@ export const findPassword = async (id,newPass)=>{
 
 
 
-/** 마이페이지 */
+
 /** 1. 예약내역확인 **/
 export const fetchMyReserve = async (userID)=>{
     const { data, error } = await supabase
@@ -105,7 +106,15 @@ export const fetchMyReserve = async (userID)=>{
                 num
             )
         `)
-        .eq('userID',userID);
+        .eq('user_id',userID);
+    return {data,error};
+}
+
+/** 2. 금액 가져오기 **/
+export const fetchAmount = async ()=>{
+    const { data, error } = await supabase
+        .from('payments')
+        .select('reserve_id','amount')
     return {data,error};
 }
 
@@ -131,7 +140,7 @@ export const cancelReserve = async (reserveID,parkareaZone,parkareaNum)=>{
     return {data:true,error};
 }
 
-/** 3. 비밀번호 변경 **/
+/** 4. 비밀번호 변경 **/
 //비밀번호 확인에서 일치하는거
 export const changePassword = async ({
     oldpass,
@@ -152,7 +161,7 @@ export const changePassword = async ({
     return {error};
 }
 
-/** 4. 연간이용권 등록 **/
+/** 5. 연간이용권 등록 **/
 export const yearlyPass = async (ID)=>{
     const { error } = await supabase
         .from('users')
