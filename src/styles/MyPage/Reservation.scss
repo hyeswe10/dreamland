@@ -1,0 +1,99 @@
+#reservation {
+  padding: 70px 16px;
+  .reservation-box {
+    background-color: #fff;
+    border-bottom: 1px solid var(--color-sub);
+    border-radius: 0;
+    p {
+      @include font-body();
+      color: var(--color-maintxt);
+    }
+    .use {
+      color: var(--color-maintxt);
+    }
+    .reserved {
+      color: var(--color-primary);
+    }
+    .canceled {
+      color: var(--color-sub);
+    }
+  }
+  .reserve-wrap {
+    @include flex-layout(column);
+    gap: 20px;
+    margin-top: 35px;
+    .card {
+      width: 100%;
+      padding: 30px 25px;
+      @include flex-layout();
+      border-radius: 16px;
+      .card-left {
+        padding-right: 15px;
+        text-align: center;
+        flex: 1;
+        h1 {
+          @include font-h1();
+          margin-bottom: 3px;
+        }
+        p {
+          @include font-caption();
+        }
+      }
+      .card-right {
+        flex: 4;
+        border-left: 1px solid var(--color-lightgraytxt);
+        padding-left: 15px;
+        .right-top {
+          p {
+            @include font-caption();
+            margin-bottom: 8px;
+          }
+          h2 {
+            @include font-h3();
+          }
+        }
+        .right-bottom {
+          margin-top: 10px;
+          height: 38px;
+          @include flex-layout(row, space-between, flex-start);
+          h3 {
+            @include font-body();
+          }
+          button {
+            font-family: inherit;
+            @include font-caption();
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            border: none;
+            border-radius: 50px;
+          }
+        }
+      }
+    }
+  }
+}
+
+    
+
+// ----- 예약 상태에 따른 classname -----
+.reservation-use {
+  background-color: var(--color-primary);
+  border-color: var(--color-white);
+  * {
+    color: var(--color-white);
+  }
+}
+.reservation-reserved {
+  border: 2px solid var(--color-primary);
+  * {
+    color: var(--color-primary);
+  }
+}
+.reservation-canceled {
+  background-color: var(--color-lightgraytxt);
+  * {
+    color: var(--color-graytxt);
+  }
+}

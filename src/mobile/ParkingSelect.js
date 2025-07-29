@@ -31,7 +31,6 @@ const ParkingSelect = ({ reservation }) => {
       setSelectSeatID(seat.num);
     }
   };
-
   //좌석 색상 함수
   const getSeatColor = (seat) => {
     if (isMyReserved(seat)) return "#ffffff"; //내 예약 색상

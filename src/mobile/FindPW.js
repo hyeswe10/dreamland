@@ -1,8 +1,15 @@
 import { useState } from "react";
 import { findInfo } from "../utils/ParkingAPI";
 import { PiWarningCircleFill } from "react-icons/pi";
+<<<<<<< HEAD
 
 const FindPW = ({setID}) => {
+=======
+import { useNavigate } from "react-router-dom";
+
+const FindPW = ({setID}) => {
+    const navigate = useNavigate();
+>>>>>>> master
     const [name,setName] = useState('');
     const [userID,setUserID] = useState('');
     const [phone,setPhone] = useState('');
@@ -12,7 +19,11 @@ const FindPW = ({setID}) => {
         const { data, error } = await findInfo(name,phone,userID);
         if(data){
             setID(data.id);
+<<<<<<< HEAD
             console.log(data.id)
+=======
+            navigate("/findpw/resetpw");
+>>>>>>> master
         }
         if(error){
             setShowPopID(true);
@@ -26,7 +37,10 @@ const FindPW = ({setID}) => {
             setShowPopEmpty(true);
         }
     }
+<<<<<<< HEAD
     console.log(showPopEmpty,showPopID)
+=======
+>>>>>>> master
     return (
         <div id="find-pw">
             <h2>비밀번호를 재설정하기 위해<br/>개인정보가 필요해요</h2>

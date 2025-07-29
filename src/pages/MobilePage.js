@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+
+import MyPage from "../components/MyPage/MyPage";
+>>>>>>> master
 import { Route, Routes, useLocation } from "react-router-dom";
 import MainPageMobile from "../mobile/MainPageMobile";
 import MobileReservation from "../mobile/MobileReservation";
@@ -7,14 +12,30 @@ import SignUp from "../mobile/SignUp";
 import Login from "../mobile/Login";
 import AgreeMent from "../mobile/AgreeMent";
 import BottomNavBarMobile from "../mobile/BottomNavBarMobile";
+<<<<<<< HEAD
+=======
+import Login from "../mobile/Login";
+import AgreeMent from "../mobile/AgreeMent";
+import SignUp from "../mobile/SignUp";
+>>>>>>> master
 import SignUpComplete from "../mobile/SignUpComplete";
 import FindID from "../mobile/FindID";
 import FindIDNo1 from "../mobile/FindIDNo1";
 import FindPW from "../mobile/FindPW";
+<<<<<<< HEAD
 
 const MobilePage = () => {
   const [userID,setUserID] = useState('');
   const [id,setId] = useState('');
+=======
+import ResetPw from "../mobile/ResetPw";
+import ChangedPw from "../mobile/ChangedPw";
+
+
+const MobilePage = () => {
+  const [userID,setUserID] = useState('');
+  const [id,setId] = useState(null);
+>>>>>>> master
   const [nameOfPage,setNameOfPage] = useState('');
   const location = useLocation();
   useEffect(()=>{
@@ -28,15 +49,41 @@ const MobilePage = () => {
     } else if(path.includes('/findpw')){
       setNameOfPage('비밀번호 변경')
     } else if(path.includes("/mypage")){
+<<<<<<< HEAD
       setNameOfPage('마이페이지')
     }
   },[location.pathname])
   //메인페이지 -> 예약페이지
+=======
+      if(path === '/mypage'){
+        setNameOfPage('마이페이지');
+      }
+      if(path.includes("/password-check")){
+        setNameOfPage('비밀번호변경');
+      }
+      if(path.includes("/membership")){
+        setNameOfPage('연간회원권 등록');
+      }
+    } else if(path.includes("/MobileReservation")){
+      setNameOfPage('예약하기')
+    }
+  },[location.pathname])
+>>>>>>> master
   return (
     <div className="mobile-page">
       <HeaderMobile pageName={nameOfPage}/>
       <Routes>
         <Route path="/" element={<MainPageMobile />}/>
+        <Route path="/login" element={<Login/>}/>
+        <Route path="/mypage/*" element={<MyPage/>}/>
+        <Route path="/agreement" element={<AgreeMent/>}/>
+        <Route path="/signup" element={<SignUp/>}/>
+        <Route path="/signupComplete" element={<SignUpComplete/>}/>
+        <Route path="/findid" element={<FindID setUserID={setUserID}/>}/>
+        <Route path="/findidno1" element={<FindIDNo1 userID={userID}/>}/>
+        <Route path="/findpw" element={<FindPW setID={setId}/>}/>
+        <Route path="/findpw/resetpw" element={<ResetPw ID={id}/>}/>
+        <Route path="/findpw/changedpw" element={<ChangedPw/>}/>
         <Route path="MobileReservation/*" element={<MobileReservation />}/>
         <Route path="/login" element={<Login/>}/>
         <Route path="/findid" element={<FindID setUserID={setUserID}/>}/>

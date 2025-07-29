@@ -1,0 +1,152 @@
+// -------- 마이페이지 홈 --------
+
+#mypage {
+  max-width: $small-size;
+  margin: 0 auto;
+  padding: 70px 0;
+  height: 100vh;
+}
+
+
+#mypage-home {
+  height: 100%;
+  padding: 20px 16px;
+  background-color: #F8F7FA;
+  @include flex-layout(column, flex-start, flex-start);
+  gap: 32px;
+  .user {
+    width: 100%;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--color-lightgraytxt);
+    * {
+      display: inline;
+    }
+    h1 {
+      color: var(--color-primary);
+      @include font-h1();
+      margin-right: 5px;
+    }
+    h2 {
+      @include font-h2();
+    }
+  }
+  .box-title {
+    color: var(--color-graytxt);
+    @include font-body-bold;
+    margin-bottom: 17px;
+  }
+  .reservation {
+    width: 100%;
+  }
+  .recently {
+    width: 100%;
+    .recently-box {
+      height: 107px;
+      @include flex-layout(column);
+      gap: 15px;
+      padding: 15px 23px;
+      background-color: var(--color-white);
+      border: 1px solid var(--color-sub);
+      border-radius: 16px;
+      cursor: pointer;
+      div {
+        width: 100%;
+        @include flex-layout(row, space-between, center);
+        p {
+          @include font-body-bold();
+          &:nth-child(2) {
+            @include font-body();
+          }
+        }
+      }
+    }
+  }
+  .profile-edit {
+    width: 100%;
+    .edit-box {
+      @include flex-layout();
+      gap: 15px;
+      .edit-card {
+        padding: 10px;
+        background-color: var(--color-white);
+        border: 1px solid var(--color-sub);
+        border-radius: 16px;
+        flex: 1;
+        cursor: pointer;
+        svg {
+          font-size: 50px;
+          padding-left: 5px;
+          path {
+            color: var(--color-sub);
+          }
+        }
+        .card-txt {
+          text-align: right;
+          h3 {
+            @include font-body-bold();
+            margin-bottom: 6px;
+          }
+          p {
+            @include font-overline();
+          }
+        }
+      }
+    }
+  }
+  .logout {
+    @include flex-layout();
+    @include font-body();
+    gap: 5px;
+    padding-bottom: 3px;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--color-graytxt);
+    cursor: pointer;
+    * {
+      color: var(--color-graytxt);
+    }
+  }
+}
+
+
+.reservation-box {
+  @include flex-layout(row, space-between, center);
+  background-color: var(--color-primary);
+  border-radius: 16px;
+  padding: 25px;
+  cursor: pointer;
+  div {
+    flex: 1;
+    text-align: center;
+    p {
+      color: var(--color-white);
+      @include font-body-bold();
+      margin-bottom: 8px;
+    }
+    h1 {
+      color: var(--color-white);
+      @include font-h1();
+    }
+    &:nth-child(2){
+      border-left: 0.5px solid var(--color-lightgraytxt);
+      border-right: 0.5px solid var(--color-lightgraytxt);
+    }
+  }
+}
+
+
+// recently 예약 상태에 따른 classname style
+.recently-box {
+  > .reserved {
+    p {
+      &:nth-child(2) {
+        color: var(--color-primary);
+      }
+    }
+  }
+  > .canceled {
+    p {
+      color: var(--color-graytxt);
+    }
+  }
+
+}

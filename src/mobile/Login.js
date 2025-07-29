@@ -44,7 +44,11 @@ const Login = () => {
                     </div>
                     <div className="find">
                         <Link to="/findid">아이디찾기</Link>
+<<<<<<< HEAD
                         <Link to="/findpw">비밀번호변경</Link>
+=======
+                        <Link to="/findpw">비밀번호찾기/변경</Link>
+>>>>>>> master
                     </div>
                 </div>
                 <button className='login-btn' type="submit">로그인</button>
