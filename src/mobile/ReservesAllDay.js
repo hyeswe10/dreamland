@@ -24,10 +24,10 @@ export const saveHourAndMinutes = (hourAndMinutes) => {
 };
 
 const ReservesAllDay = ({ reservation }) => {
-  const startTime = useState("00:00"); // 시작 시간관리
-  const endTime = useState("23:59"); // 종료 시간관리
-  const hourAndMinutes = useState("24시간");
-  const total = useState(15000); // 일 최대 요금
+  const startTime = "00:00"; // 시작 시간관리
+  const endTime = "23:59"; // 종료 시간관리
+  const hourAndMinutes = "24시간";
+  const total = 15000; // 일 최대 요금
   const [popUp, setPopUp] = useState(false); // 팝업 상태 관리
 
   const navigate = useNavigate();
@@ -88,8 +88,8 @@ const ReservesAllDay = ({ reservation }) => {
   };
 
   const selectDay = () => {
-    return reservation.selectedDate
-      ? reservation.selectedDate.toLocaleDateString("ko-KR", {
+    return selectedDate
+      ? selectedDate.toLocaleDateString("ko-KR", {
           month: "long",
           day: "numeric",
         })
@@ -170,8 +170,7 @@ const ReservesAllDay = ({ reservation }) => {
                       day: "numeric",
                       weekday: "long",
                     })
-                  : ""}
-                {selectDay()} {startTime} - {selectDay()} {endTime}
+                  : ""} {startTime} - {endTime}
               </p>
             </div>
           </div>
@@ -187,7 +186,7 @@ const ReservesAllDay = ({ reservation }) => {
               <p>
                 <span>일일권</span> 이용 금액
               </p>
-              <h5>{total.toLocaleString("ko-KR")}원</h5>
+              <h5>{total.toLocaleString()}원</h5>
             </div>
           </div>
         </div>
