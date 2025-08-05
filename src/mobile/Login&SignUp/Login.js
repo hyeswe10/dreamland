@@ -18,8 +18,9 @@ const Login = () => {
         }
         if(data){ 
             saveUserInfo(data);
-            // window.location.href = "/"; // ✅ navigate("/") 대신 새로고침
             navigate("/");
+            window.location.reload();
+            
         }
     }
     return (

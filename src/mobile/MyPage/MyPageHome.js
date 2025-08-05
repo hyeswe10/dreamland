@@ -30,7 +30,8 @@ const MyPageHome = () => {
 
   const handleLogout = () => {
     deleteUserInfo();
-    window.location.href = "/"; // ✅ 강제 새로고침
+    navigate("/");
+    window.location.reload();
 };
 
 
