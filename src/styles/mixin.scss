@@ -1,0 +1,145 @@
+@mixin desktop {
+  @media screen and (min-width: 1440px) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media screen and (max-width: 400px) {
+    @content;
+  }
+}
+@mixin pop-max {
+  @media screen and (min-width: 1024px) {
+    @content;
+  }
+}
+
+//플렉스
+@mixin flex-layout($direction: row, $justify: center, $align: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+//폰트 믹스인(사이즈, 굵기)
+@mixin font-h1 {
+  font-size: 3.2rem;
+  font-weight: 700;
+  @include mobile {
+    font-size: 2.4rem;
+  }
+}
+@mixin font-h2 {
+  font-size: 2.4rem;
+  font-weight: 600;
+  @include mobile {
+    font-size: 2rem;
+  }
+}
+@mixin font-h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  @include mobile {
+    font-size: 1.8rem;
+  }
+}
+@mixin font-body {
+  font-size: 1.6rem;
+  font-weight: 400;
+  @include mobile {
+    font-size: 1.4rem;
+  }
+}
+@mixin font-body-bold {
+  font-size: 1.6rem;
+  font-weight: 600;
+  @include mobile {
+    font-size: 1.4rem;
+  }
+}
+@mixin font-caption {
+  font-size: 1.4rem;
+  font-weight: 400;
+  @include mobile {
+    font-size: 1.2rem;
+  }
+}
+@mixin font-overline {
+  font-size: 1rem;
+  font-weight: 400;
+  @include mobile {
+    font-size: 0.9rem;
+  }
+}
+
+//버튼 2종
+@mixin btn1 {
+  margin-bottom: 2.5rem;
+  width: 100%;
+  height: 60px;
+  border: none;
+  border-radius: 16px;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  font-size: 24px;
+  font-weight: 600;
+  font-family: inherit;
+  &:hover {
+    filter: brightness(85%);
+  }
+  @include pop-max{
+    font-size: 20px;
+    height: 50px;
+    border-radius: 14px;
+  }
+}
+@mixin btn2 {
+  width: 100%;
+  height: 60px;
+  border: none;
+  border-radius: 16px;
+  background-color: var(--color-sub); // sub컬러
+  color: var(--color-maintxt); // main 텍스트 색
+  font-size: 24px;
+  font-weight: 600;
+  font-family: inherit;
+  &:hover {
+    filter: brightness(90%);
+  }
+  @include pop-max{
+    font-size: 20px;
+    height: 50px;
+    border-radius: 14px;
+  }
+}
+
+//보더 박스
+@mixin border {
+  width: 380px;
+  border: 1px solid var(--color-sub);
+  border-radius: 1rem;
+  padding: 20px 30px;
+}
+
+// desktop 전용 믹스인
+@mixin desktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+//팝업 버튼
+@mixin pop-btn {
+  width: 100%;
+    height: 4rem;
+    margin-top: 1rem;
+    border: none;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-radius: 1rem;
+    cursor: pointer;
+    &:hover {
+      filter: brightness(80%);
+    }
+}

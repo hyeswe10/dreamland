@@ -1,0 +1,121 @@
+.right-bar {
+  position: fixed;
+  top: 0;
+  right: calc(50% - 250px - 300px);
+  width: 250px;
+  height: 100vh;
+  z-index: 100;
+  padding: 10px;
+  padding-top: 20px;
+  @include flex-layout(column, space-between);
+
+  .user-info {
+      @include flex-layout(row,flex-end);
+      gap: 5px;
+      cursor: pointer;
+      width: 100%;
+      padding: 0 16px;
+      p {
+        @include font-body-bold;
+        span{
+          color: var(--color-graytxt);
+          @include font-caption;
+        }
+      }
+      .user-icon {
+        font-size: 18px;
+        path{
+          fill: var(--color-graytxt);
+        }
+      }
+    }
+
+  .card-wrap {
+    @include flex-layout(column);
+    width: 100%;
+    gap: 16px;
+
+    .card-top {
+      @include flex-layout(column);
+      width: 100%;
+      height: 270px;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0px 0px 15px rgba(220, 213, 232, 0.5);
+      padding: 16px;
+      background-color: var(--color-white);
+      overflow: hidden;
+      position: relative;
+      background: linear-gradient(180deg,rgba(255, 254, 255, 1) 55%, rgba(255, 252, 234, 1) 100%);
+      cursor: pointer;
+
+      .card-title {
+        position: absolute;
+        width: 100%;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .title-sub {
+        @include font-body-bold;
+        color: var(--cpolor-maintxt);
+        width: 100%;
+      }
+
+      .title-main {
+        @include flex-layout();
+        gap: 5px;
+        p {
+          @include font-h1;
+          color: var(--color-primary);
+        }
+        span {
+          @include font-body-bold;
+          color: var(--cpolor-maintxt) !important;
+        }
+      }
+
+      .img-area {
+        position: absolute;
+        top: 100px;
+        left: 30px;
+        img {
+          width: 200px;
+        }
+      }
+    }
+
+    .card-bottom {
+      @include flex-layout(row, space-between);
+      background-color: var(--color-white);
+      border-radius: 16px;
+      width: 100%;
+      padding: 10px;
+      text-align: center;
+      box-shadow: 0px 0px 15px rgba(220, 213, 232, 0.5);
+
+      .qr-title {
+        @include font-body-bold;
+        text-align: left;
+        color: var(--cpolor-maintxt);
+      }
+
+      .qr-box {
+        width: 65px;
+        height: 65px;
+        border-radius: 5px;
+        img{
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .qr-sub {
+        @include font-caption;
+        color: var(--color-graytxt);
+        margin-top: 3px;
+      }
+    }
+  }
+}

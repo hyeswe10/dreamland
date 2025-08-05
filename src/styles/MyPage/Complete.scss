@@ -1,0 +1,35 @@
+.complete {
+  @include flex-layout(column, space-between, center);
+  min-height: calc(100vh - 140px) ;
+  padding: 0 16px;
+  @include desktop {
+    min-height: 100vh;
+  }
+  .complete-contents {
+    flex: 1;
+    @include flex-layout(column);
+    height: 60%;
+    // margin-top: 180px;
+    svg {
+      margin-bottom: 20px;
+      font-size: 7rem;
+      path {
+        color: var(--color-primary);
+      }
+    }
+    h2 {
+      @include font-h2();
+    }
+  }
+  .complete-btn {
+    // flex: 1;
+    width: 100%;
+    .btn-1 {
+      @include btn2();
+      margin-bottom: 12px;
+    }
+    .btn-2 {
+      @include btn1();
+    }
+  }
+}

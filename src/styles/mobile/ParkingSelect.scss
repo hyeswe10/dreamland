@@ -1,0 +1,145 @@
+.parking-select {
+  @include flex-layout(column, space-between, center);
+  min-height: calc(100vh - 140px) ;
+  width: 100%;
+  @include desktop {
+    min-height: 100vh;
+  }
+  .parking-wrap {
+    width: 100%;
+    padding-top: 20px;
+    .reserve-notice {
+      @include flex-layout();
+      gap: 0.5rem;
+      .notice-icon-wrap {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        .notice-icon {
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          display: flex;
+          @include flex-layout();
+          justify-content: center;
+          align-items: center;
+          gap: 0.5rem;
+          svg {
+            width: 17px;
+            height: 17px;
+            transform: scaleX(-1);
+          }
+        }
+        span {
+          @include font-overline();
+          color: var(--color-graytxt);
+        }
+      }
+    }
+    span {
+      @include font-overline();
+      color: var(--color-graytxt);
+    }
+  }
+  
+  .seat-wrapper {
+    margin: 1.5rem;
+    @include flex-layout(column);
+    .seat-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      padding: 1rem 0;
+      .seat {
+        &.my-reserve {
+          background-color: var(--color-sub);
+        }
+        &.selected {
+          background-color: var(--color-primary);
+        }
+        &.reserve {
+          background-color: var(--color-lightgraytxt);
+        }
+        &.available {
+          background-color: var(--color-white);
+          cursor: pointer;
+        }
+        border: 1px solid #d3c9e4;
+        text-align: center;
+        min-width: 70px;
+        height: 90px;
+        @include flex-layout(column, center, center);
+        @include desktop {
+          min-width: 90px;
+        }
+      }
+    }
+  }
+  }
+
+//날짜 + 페이지 타이틀
+.top-wrapper {
+  @include flex-layout(column);
+  gap: 10px;
+  margin: 1rem;
+  margin-top: 5rem;
+  @include desktop {
+    margin-top: 8rem;
+  }
+  
+  // border: 1px solid #222;
+  .top1 {
+    @include flex-layout(flex-start);
+    @include font-caption();
+    background-color: #F8F7FA;
+    border-radius: 16px;
+    padding: 8px 20px;
+    color: var(--color-graytxt);
+    gap: 0.5rem;
+  }
+  .top2 {
+    @include flex-layout(flex-start);
+    gap: 0.5rem;
+    .zone-color {
+      @include font-h2();
+      color: var(--color-primary);
+    }
+  }
+  .calendar-icon {
+    font-size: 1.5rem;
+  }
+  .map-icon {
+    font-size: 2rem;
+    color: var(--color-primary);
+  }
+  h2 {
+    @include font-h2();
+  }
+}
+
+//페이지 버튼 스타일
+.btn-wrap{
+  width: 100%;
+  padding: 0 16px;
+  @include desktop{
+    padding: 0 16px;
+  }
+}
+.select-btn {
+  @include flex-layout();
+  gap: 1rem;
+  @include btn1();
+  background-color: #F8F7FA;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+  span {
+    @include font-h3();
+    color: var(--color-graytxt);
+  }
+  cursor: default;
+  &:hover {
+    filter: brightness(100%);
+  }
+}
+.next-btn {
+  @include btn1();
+}

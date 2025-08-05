@@ -1,0 +1,28 @@
+@import "../mixin.scss";
+@import "../variable.scss";
+
+
+//초기 테스트(startpage 작업하시는 분이 참고 + 삭제)  
+.start-page {
+  @include flex-layout(column);
+  color: var(--color-primary);
+
+    h2 { font-size: $font-size-h2; }
+
+    .allbtn{
+      button{ margin: 30px 0} ;
+    .b1 { @include btn1(); padding: 30px }
+    .b2 { @include btn2(); }
+    .b3 { @include btn2(); width: 200px; }
+    .b4 { @include btn2(); }
+    }
+
+  .alltxt {
+    @include border();
+    margin: 30px 0;
+    .txt {
+      @include flex-layout(row, space-between, center);
+      gap: 30px;
+    }
+  }
+}

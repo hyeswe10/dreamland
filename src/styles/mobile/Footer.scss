@@ -1,0 +1,57 @@
+#footer{
+  background-color: var(--color-lightgraytxt);
+  padding: 16px;
+  color: var(--color-graytxt);
+  @include font-overline;
+  @include flex-layout(column, space-between);
+  
+  gap: 10px;
+  .footer-top{
+    @include flex-layout(column, space-around, left);
+    width: 100%;
+    gap: 5px;
+    .company-info{
+      display: flex;
+      gap: 10px;
+      p{
+        border-right: 1px solid var(--color-graytxt);
+        padding-right: 10px;
+        &:nth-child(2){
+          border: none;
+        }
+      }
+    }
+  }
+  .line{
+    background-color: #E0E0E0;
+    height: 1px;
+    width: 80%;
+  }
+  .footer-bottom{
+    @include flex-layout(row, space-between);
+    width: 100%;
+    img{
+      cursor: pointer;
+    }
+    .icon-list{
+      @include flex-layout();
+      gap: 10px;
+      li{
+        background-color: var(--color-sub) !important;
+        // background-color: red !important;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        cursor: pointer;
+        @include flex-layout();
+
+        svg{
+          font-size: 2rem;
+          path{
+            fill: var(--color-lightgraytxt);
+          }
+        }
+      }
+    }
+  }
+}

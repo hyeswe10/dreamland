@@ -1,0 +1,128 @@
+[
+  {
+    "id": 1,
+    "category": "어트랙션",
+    "title": "캔디 스카이라인 레일",
+    "time": "11:00~18:00",
+    "img": "/images/candy-rail.jpg"
+  },
+  {
+    "id": 2,
+    "category": "어트랙션",
+    "title": "무지개 스플래쉬",
+    "time": "11:00~18:00",
+    "img": "/images/rainbow-splash.jpg"
+  },
+  {
+    "id": 3,
+    "category": "어트랙션",
+    "title": "달빛 관람차",
+    "time": "11:00~18:00",
+    "img": "/images/ferris-wheel.jpg"
+  },
+  {
+    "id": 4,
+    "category": "어트랙션",
+    "title": "드림 애니멀 카트",
+    "time": "11:00~18:00",
+    "img": "/images/animal-cart.jpg"
+  },
+  {
+    "id": 5,
+    "category": "어트랙션",
+    "title": "드림 페스티벌 가든",
+    "time": "11:00~20:00",
+    "img": "/images/festival-garden.jpg"
+  },
+  {
+    "id": 6,
+    "category": "어트랙션",
+    "title": "구름 회전목마",
+    "time": "11:00~18:00",
+    "img": "/images/carousel.jpg"
+  },
+  {
+    "id": 7,
+    "category": "공연",
+    "title": "드림스타 퍼레이드",
+    "time": "14:00~14:20",
+    "img": "/images/dreamstar-parade.jpg"
+  },
+  {
+    "id": 8,
+    "category": "공연",
+    "title": "루나라이트 판타지쇼",
+    "time": "21:00~21:15",
+    "img": "/images/lunalight-show.jpg"
+  },
+  {
+    "id": 9,
+    "category": "공연",
+    "title": "별빛 분수 쇼",
+    "time": "20:00~20:15",
+    "img": "/images/starlight-fountain.jpg"
+  },
+  {
+    "id": 10,
+    "category": "공연",
+    "title": "캔디버블 워터파티",
+    "time": "13:30~14:00 / 16:30~17:00",
+    "img": "/images/candybubble-party.jpg"
+  },
+  {
+    "id": 11,
+    "category": "공연",
+    "title": "드림하모니 라이브",
+    "time": "17:00~17:20",
+    "img": "/images/dreamharmony-live.jpg"
+  },
+  {
+    "id": 12,
+    "category": "공연",
+    "title": "숲속 요정 이야기극장",
+    "time": "11:30~11:50 / 15:00~15:20",
+    "img": "/images/forest-fairy-theater.jpg"
+  },
+  {
+    "id": 13,
+    "category": "레스토랑",
+    "title": "스타라이트 키친",
+    "time": "10:30~19:00",
+    "img": "/images/starlight-kitchen.jpg"
+  },
+  {
+    "id": 14,
+    "category": "레스토랑",
+    "title": "무지개 스낵바",
+    "time": "11:00~20:00",
+    "img": "/images/rainbow-snack.jpg"
+  },
+  {
+    "id": 15,
+    "category": "레스토랑",
+    "title": "드림버거 하우스",
+    "time": "10:30~20:00",
+    "img": "/images/dreamburger-house.jpg"
+  },
+  {
+    "id": 16,
+    "category": "레스토랑",
+    "title": "스위트 클라우드 카페",
+    "time": "09:30~18:30",
+    "img": "/images/sweetcloud-cafe.jpg"
+  },
+  {
+    "id": 17,
+    "category": "기프트샵",
+    "title": "드림 포켓 마켓",
+    "time": "10:00~21:00",
+    "img": "/images/dream-pocket.jpg"
+  },
+  {
+    "id": 18,
+    "category": "기프트샵",
+    "title": "마법상점 루루의 상자",
+    "time": "11:00~19:30",
+    "img": "/images/lulu-box.jpg"
+  }
+]

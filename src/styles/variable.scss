@@ -1,0 +1,22 @@
+//variable.scss
+
+//컬러 변수
+:root{
+    --color-primary:#BD6CE3;
+    --color-sub:#DCD5E8;
+    --color-secondary:#FFF098;
+
+    --color-maintxt:#2B2D42; 
+    --color-graytxt:#BAB6C3;
+    --color-lightgraytxt: #EFEFEF;
+    --color-white: #FFFEFF;
+}
+
+//반응형 브레이크포인트
+$small-size: 600px;
+$large-size:1024px;
+
+// zone별 주차공간 상태 색상 변수
+// $zone-available-color: ; // (주차 가능)
+// $zone-unavailable-color: ; // (주차 불가능)
+// $zone-selected-color: ; // (내가 선택 중)

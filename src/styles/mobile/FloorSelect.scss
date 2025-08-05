@@ -1,0 +1,97 @@
+.floor-select {
+  @include flex-layout(column, space-between, center);
+  gap: 2  0px;
+  min-height: calc(100vh - 140px) ;
+  @include desktop {
+    min-height: 100vh;
+  }
+  .floor-wrap-top {
+    width: 100%;
+  }
+  .top-zone {
+    .zone-wrap {
+      padding: 30px 16px;
+      padding-bottom: 60px;
+      // background-color: #F8F7FA;
+      .zone-name {
+        text-align: center;
+        margin-bottom: 17px;
+        p {
+          color: var(--color-sub);
+          &:nth-child(1){
+            @include font-overline();
+            margin-bottom: 10px;
+          }
+          &:nth-child(2){
+            @include font-h3();
+            color: ver 
+          }
+        }
+      }
+      ul {
+        height: 40vh;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: (2, auto);
+        gap: 1.5rem;
+        .zone-select {
+          height: 100%;
+          min-height: 150px;
+          @include flex-layout(column, center, center);
+          background-color: var(--color-white);
+          border: 1px solid var(--color-sub);
+          box-shadow: 0 0 20px #dcd5e8bf;
+          border-radius: 1.6rem;
+          padding: 16px 20px;
+          text-align: center;
+          cursor: pointer;
+          transition: 0.3s;
+          &:hover {
+            background-color: var(--color-sub);
+            filter: brightness(110%);
+          }
+
+          &.on {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+          }
+
+          div:nth-child(1) {
+            @include flex-layout();
+            gap: 5px;
+            flex: 1;
+            @include font-h3();
+            span {
+              @include font-h1();
+            }
+          }
+          div:nth-child(2) {
+            width: 100%;
+            @include flex-layout(row, space-between, center);
+            gap: 1rem;
+            @include font-caption();
+            span {
+              @include font-body-bold();
+              margin: 0 3px;
+            }
+            .status-dot {
+              display: inline-block;
+              width: 10px;
+              height: 10px;
+              border-radius: 50%;
+              margin-right: 5px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .floor-wrap-bottom {
+    width: 100%;
+    padding: 0 16px;
+    .next-btn {
+      @include btn1();
+      width: 100%;
+    }
+  }
+}

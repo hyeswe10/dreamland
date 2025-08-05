@@ -1,0 +1,33 @@
+.progress-wrap {
+  margin: 2rem auto;
+  position: fixed;
+  top: 7rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 550px;
+  min-width: 350px;
+  height: 6px;
+  background-color: var(--color-lightgraytxt);
+  z-index: 500;
+  overflow: hidden;
+  border-radius: 10rem;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+
+  @include desktop {
+    top: 1rem;
+  }
+}
+
+.progress-wrap.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: var(--color-sub);
+  transition: width 0.4s ease-in-out;
+}

@@ -1,0 +1,125 @@
+#information {
+  ul {
+    @include flex-layout(row, flex-start, center);
+    gap: 25px;
+    padding: 0 25px;
+    margin-top: 30px;
+    li {
+      @include font-h3();
+      height: 40px;
+      cursor: pointer;
+      &.active {
+        color: var(--color-primary);
+        border-bottom: 3px solid var(--color-primary);
+      }
+    }
+  }
+  // ----- map -----
+  .info-map {
+    background-color: #f8f7fa;
+    .map-content {
+      border-radius: 16px;
+      padding: 28px;
+      padding-bottom: 0;
+      z-index: 100;
+      img {
+        width: 100%;
+      }
+    }
+  }
+  // ----- price -----
+  .info-price {
+    .price-content {
+      padding: 35px 28px;
+      padding-bottom: 0;
+      @include flex-layout(column, center, flex-start);
+      gap: 20px;
+      z-index: 100;
+      .content-title {
+        @include font-h3();
+        @include flex-layout();
+        gap: 11px;
+        padding: 0 10px;
+      }
+      > img {
+        width: 100%;
+      }
+      .content-ment {
+        padding: 15px 20px;
+        color: var(--color-graytxt);
+        @include font-caption();
+        span {
+          @include font-body-bold();
+        }
+        p {
+          margin: 5px 0;
+        }
+      }
+    }
+  }
+  // ----- how -----
+  .info-how {
+    background-color: #f8f7fa;
+    .info-wrap {
+      width: 100%;
+      padding: 35px 0;
+      .how-title {
+        @include font-h3();
+        @include flex-layout(row, flex-start, center);
+        gap: 10px;
+        padding-left: 35px;
+        svg {
+          font-size: 4rem;
+          color: var(--color-primary);
+        }
+      }
+      ul {
+        @include flex-layout(column, center, center);
+        width: 100%;
+        gap: 15px;
+        li {
+          z-index: 100;
+          width: 100%;
+          height: 65px;
+          padding: 0 30px;
+          @include flex-layout(row, flex-start, center);
+          gap: 15px;
+          background-color: var(--color-white);
+          border-radius: 16px;
+          @include font-body-bold();
+          p {
+            color: var(--color-graytxt);
+          }
+          &:nth-last-of-type(1) {
+            box-shadow: 0 0 20px 0 rgba(220, 213, 232, 0.7);
+            h3 {
+              @include font-h3();
+              color: #6e3d84;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.info-map,
+.info-price,
+.info-how {
+  min-height: calc(100vh - 210px) ;
+  position: relative;
+  background-color: #f8f7fa;
+  @include flex-layout(column, space-between, center);
+  > img  {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+  }
+  @include desktop {
+    min-height: calc(100vh - 70px);
+    background-color: #f8f7fa;
+    @include flex-layout(column, space-between, center);
+    img {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+.layout {
+  display: flex;
+  .content {
+    margin: 0 auto; /* 좌우 네비바 공간 확보 */
+    width: 600px;
+    min-height: 100vh;
+    background: #fff;
+  }
+}

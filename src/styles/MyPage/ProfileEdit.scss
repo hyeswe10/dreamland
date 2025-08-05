@@ -1,0 +1,52 @@
+#profile-edit {
+  @include flex-layout(column, space-between, center);
+  min-height: calc(100vh - 140px) ;
+  padding: 0 16px;
+  @include desktop {
+    min-height: 100vh;
+  }
+  .input-wrap {
+    // margin-bottom: 8rem;
+    @include flex-layout(column, flex-start, flex-start);
+    gap: 2rem;
+    width: 100%;
+    padding-top: 35px;
+    h2 {
+      padding: 10px;
+      @include font-h2();
+    }
+    .input-box {
+      width: 100%;
+      .input-title {
+        @include flex-layout(row, space-between, center);
+        padding: 10px 20px;
+        p {
+          @include font-caption();
+          color: var(--color-maintxt);
+        }
+        .success-ment{
+          color: var(--color-primary);
+        }
+      }
+      input {
+        padding: 20px;
+        width: 100%;
+        border: 1px solid var(--color-lightgraytxt);
+        border-radius: 1.6rem;
+        outline-color: var(--color-primary);
+        font-family: inherit;
+        @include font-body-bold();
+        &::placeholder {
+          @include font-caption();
+          color: var(--color-graytxt);
+        }
+      }
+    }
+  }
+  button {
+    @include btn1();
+    margin-top: 50px;
+  }
+}
+
+
