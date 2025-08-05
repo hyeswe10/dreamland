@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/dreamland/static/css/main.ddaa7f52.css",
-    "main.js": "/dreamland/static/js/main.461cdf02.js",
+    "main.js": "/dreamland/static/js/main.fe2b9c26.js",
     "static/media/DreamLand_logo2.svg": "/dreamland/static/media/DreamLand_logo2.64ec570589726759ffb8e5b3a8efe7c9.svg",
     "static/media/Car_ani.svg": "/dreamland/static/media/Car_ani.4b79500147a3c35b0a3b37350cbb7d15.svg",
     "static/media/slick.svg": "/dreamland/static/media/slick.2630a3e3eab21c607e21.svg",
@@ -13,10 +13,10 @@
     "static/media/Shadow_ani.svg": "/dreamland/static/media/Shadow_ani.0a61ee4a7c1102b621ebb563b374df0f.svg",
     "index.html": "/dreamland/index.html",
     "main.ddaa7f52.css.map": "/dreamland/static/css/main.ddaa7f52.css.map",
-    "main.461cdf02.js.map": "/dreamland/static/js/main.461cdf02.js.map"
+    "main.fe2b9c26.js.map": "/dreamland/static/js/main.fe2b9c26.js.map"
   },
   "entrypoints": [
     "static/css/main.ddaa7f52.css",
-    "static/js/main.461cdf02.js"
+    "static/js/main.fe2b9c26.js"
   ]
 }
