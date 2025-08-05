@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/dreamland/static/css/main.ddaa7f52.css",
+    "main.js": "/dreamland/static/js/main.461cdf02.js",
+    "static/media/DreamLand_logo2.svg": "/dreamland/static/media/DreamLand_logo2.64ec570589726759ffb8e5b3a8efe7c9.svg",
+    "static/media/Car_ani.svg": "/dreamland/static/media/Car_ani.4b79500147a3c35b0a3b37350cbb7d15.svg",
+    "static/media/slick.svg": "/dreamland/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/Parking.svg": "/dreamland/static/media/Parking.b22ef4397649236c9626d837749639fa.svg",
+    "static/media/slick.eot": "/dreamland/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/dreamland/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/dreamland/static/media/slick.295183786cd8a1389865.woff",
+    "static/media/Smoke_ani.svg": "/dreamland/static/media/Smoke_ani.039d256f9e5943635bacd54679ed68dd.svg",
+    "static/media/Shadow_ani.svg": "/dreamland/static/media/Shadow_ani.0a61ee4a7c1102b621ebb563b374df0f.svg",
+    "index.html": "/dreamland/index.html",
+    "main.ddaa7f52.css.map": "/dreamland/static/css/main.ddaa7f52.css.map",
+    "main.461cdf02.js.map": "/dreamland/static/js/main.461cdf02.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ddaa7f52.css",
+    "static/js/main.461cdf02.js"
+  ]
+}
