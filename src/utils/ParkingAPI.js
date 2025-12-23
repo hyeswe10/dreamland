@@ -1,4 +1,4 @@
-import { createClient } from "@supabase/supabase-js/dist/index.cjs";
+import { createClient } from "@supabase/supabase-js";
 import userEvent from "@testing-library/user-event";
 
 
