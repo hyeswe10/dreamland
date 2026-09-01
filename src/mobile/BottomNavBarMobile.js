@@ -11,8 +11,8 @@ const BottomNavBarMobile = () => {
   const location = useLocation();
   const [noUser,setNoUser] = useState(false);
 
-  const isActive = (path) => location.pathname === path; //정확할때
-  const isIncludeActive = (path) => location.pathname.includes(path); //포함일때
+  const isActive = (path) => location.pathname === path; // 정확할때
+  const isIncludeActive = (path) => location.pathname.includes(path); // 포함일때
   const handleNavigate = (path) => {
     if(!getUserInfo()){
       if(path === '/MobileReservation/schedule' || path === '/mypage/reservation'){
